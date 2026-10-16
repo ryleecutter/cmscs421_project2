@@ -1,11 +1,3 @@
-; TODO-STUDENT: UNFINISHED
-; Extend standard Blocks World to exactly two explicit grippers.
-; Required predicates:
-;   (free ?g - gripper)
-;   (holding ?g - gripper ?x - block)
-; Keep on / ontable / clear.
-; Implement pickup, putdown, stack, and unstack with a ?g - gripper parameter.
-; Delete the TODO-STUDENT line only when the file is complete.
 
 (define (domain blocks-two-grippers)
   (:requirements :strips :typing)
@@ -19,9 +11,6 @@
     (clear ?x - block)
 
     (free ?g - gripper)
-
-    ;couldnt i just do 1 free? and in action check precondition 
-    ; same for holding. does adding another gripper make the predicates all combinations?
     (holding ?g - gripper ?x - block)
 
   )
@@ -37,7 +26,7 @@
     )
   )
   (:action putdown
-    :parameters (?g -gripper ?b - block)
+    :parameters (?g - gripper ?b - block)
     :precondition (holding ?g ?b)
     :effect (and
       (ontable ?b)
@@ -58,13 +47,14 @@
     )
   )
   (:action unstack
-    :parameters (?g -gripper ?b - block ?b1 - block)
+    :parameters (?g - gripper ?b - block ?b1 - block)
     :precondition (and (on ?b ?b1) (free ?g) (clear ?b))
     :effect (and
       (not (on ?b ?b1))
       (not (free ?g))
       (holding ?g ?b)
       (clear ?b1)
+      (not (clear ?b))
     )
   )
 
