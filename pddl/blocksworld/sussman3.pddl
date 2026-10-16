@@ -14,11 +14,11 @@
     (clear c)
     (handempty)
   )
-)
 
-(:goal
-  (and
-    (on a b)
-    (on b c)
+  (:goal
+    (and
+      (on a b)
+      (on b c)
+    )
   )
 )
