@@ -26,7 +26,6 @@
 
   )
 
-  ; TODO: implement unstack.
   (:action pickup
     :parameters (?g - gripper ?b - block)
     :precondition (and (free ?g) (clear ?b) (ontable ?b))
@@ -61,9 +60,11 @@
   (:action unstack
     :parameters (?g -gripper ?b - block ?b1 - block)
     :precondition (and (on ?b ?b1) (free ?g) (clear ?b))
-    :effect (and 
+    :effect (and
       (not (on ?b ?b1))
-      (not ())
+      (not (free ?g))
+      (holding ?g ?b)
+      (clear ?b1)
     )
   )
 
