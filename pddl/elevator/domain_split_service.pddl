@@ -15,11 +15,10 @@
   )
 
   (:action move
-    :parameters (?cf - floor ?nf - floor ?e - elevator ?p - passenger)
+    :parameters (?cf - floor ?nf - floor ?e - elevator)
     :precondition (and
       (lift-at ?e ?cf)
       (link ?e ?cf ?nf)
-      (boarded ?p ?e)
     )
     :effect (and
       (not (lift-at ?e ?cf))
