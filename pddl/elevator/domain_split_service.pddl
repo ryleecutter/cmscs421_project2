@@ -1,7 +1,4 @@
-; TODO-STUDENT: UNFINISHED
-; move must require both (lift-at ?e ?from) and (link ?e ?from ?to).
-; board and leave retain their baseline meaning.
-; Delete the TODO-STUDENT line only when the file is complete.
+
 
 (define (domain elevator-split-service)
   (:requirements :strips :typing)
