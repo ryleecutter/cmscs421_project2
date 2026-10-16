@@ -7,14 +7,24 @@
   (:domain blocks-two-grippers)
   (:objects
     a b c - block
-    left right - gripper)
-
-  (:init
-    ; TODO: same block configuration as sussman3.pddl
-    ; TODO: both grippers start free
+    left right - gripper
   )
 
-  (:goal (and
-    ; TODO: same goals as sussman3.pddl
-  ))
+  (:init
+    (free left)
+    (free right)
+    (on c a)
+    (clear c)
+    (clear b)
+    (ontable a)
+    (ontable b)
+
+  )
+
+  (:goal
+    (and
+      (on a b)
+      (on b c)
+    )
+  )
 )
